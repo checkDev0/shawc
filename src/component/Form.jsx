@@ -25,7 +25,7 @@ const Form = () => {
     // alert('logged in')
   }
   return (
-    <div className='flex flex-col gap-5 w-[40%]'>
+    <div className='flex flex-col gap-5 md:w-[40%]'>
       <section className='flex flex-col gap-2'>
         <label className='font-semibold'>Email Address</label>
         <input

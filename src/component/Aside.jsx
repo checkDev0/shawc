@@ -4,7 +4,7 @@ const Aside = () => {
   return (
     <aside>
       <p className='mb-5'>Make Frontier Yahoo! your homepage</p>
-      <section className='flex gap-2'>
+      <section className='flex gap-2 flex-wrap'>
         <input type='text' className='input self-end' />
         <span className='flex-col flex items-center'>
           <img src={Logo} />

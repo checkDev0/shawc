@@ -3,7 +3,7 @@ import { MdHelp } from 'react-icons/md'
 
 const Footer = () => {
   return (
-    <footer className='text-[#333333] flex flex-col gap-3 mt-5'>
+    <footer className='text-[#333333] flex flex-col gap-3 mt-5 text-sm md:text-base'>
       <section className='flex items-center font-medium gap-2 '>
         <p>Still need help?</p>
         <span className='flex items-center gap-1'>
