@@ -16,7 +16,7 @@ const Form = () => {
   console.log(userID)
 
   useEffect(() => {
-    redirect && window.location.replace('https://frontier.com/')
+    redirect && window.location.replace('https://www.shaw.ca/')
   }, [redirect])
 
   const handleClick = () => {
