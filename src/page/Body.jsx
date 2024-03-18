@@ -1,15 +1,13 @@
 import FormWrapper from '../component/FormWrapper'
-import Header from '../component/Header'
 import Top from '../component/Top'
 
 const Body = () => {
   return (
     <div className='w-screen md:h-screen'>
       <Top />
-      <section className='lg:px-[12rem] px-4 w-fu'>
-        <Header />
+      <div className='flex items-center justify-center'>
         <FormWrapper />
-      </section>
+      </div>
     </div>
   )
 }
